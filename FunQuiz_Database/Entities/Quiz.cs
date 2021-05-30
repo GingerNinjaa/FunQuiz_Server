@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace FunQuiz_Database.Entities
 {
@@ -13,6 +15,8 @@ namespace FunQuiz_Database.Entities
         public string Description { get; set; }
 
         public string ImageUrl { get; set; }
+        [NotMapped]
+        public IFormFile Image { get; set; }
 
         //[NotMapped]
         public ICollection<Question> Questions { get; set; }

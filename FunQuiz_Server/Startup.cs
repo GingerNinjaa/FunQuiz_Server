@@ -51,9 +51,10 @@ namespace FunQuiz_Server
                 //swagger
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "QUIZAPI"));
-
             }
-            
+            //images
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
