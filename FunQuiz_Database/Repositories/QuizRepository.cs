@@ -61,8 +61,13 @@ namespace FunQuiz_Database.Repositories
                 //var qustions = await this._dbContext.Questions
                 //    .Include(x => x.Answers).FirstOrDefaultAsync(x =>x.Id == id);
 
-                var quiz = await _dbContext.Quizs.Include(x => x.Questions).ThenInclude(y =>y.Answers).FirstOrDefaultAsync(z => z.Id == id);
-                return quiz;
+               // var quiz = await _dbContext.Quizs.Include(x => x.Questions).ThenInclude(y =>y.Answers).FirstOrDefaultAsync(z => z.Id == id);
+
+                var quiz = await _dbContext.Quizs
+                    .Include(x => x.Questions.OrderBy(r => Guid.NewGuid()).Take(4))
+                    .ThenInclude(y => y.Answers).FirstOrDefaultAsync(z => z.Id == id);
+
+                return (Quiz) quiz;
             }
             catch (Exception e)
             {

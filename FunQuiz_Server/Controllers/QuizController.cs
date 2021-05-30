@@ -88,22 +88,22 @@ namespace FunQuiz_Server.Controllers
         //    return StatusCode(StatusCodes.Status200OK);
         //}
 
-        //[Authorize]
-        [HttpPost("[action]")]
-        [ResponseCache(Duration = 360, Location = ResponseCacheLocation.Any)]
-        public IActionResult AddRecepieImg([FromForm] Quiz quiz)
-        {
-            bool resoult = _quizRepository.AddQuizImg(quiz);
+        ////[Authorize]
+        //[HttpPost("[action]")]
+        //[ResponseCache(Duration = 360, Location = ResponseCacheLocation.Any)]
+        //public IActionResult AddRecepieImg([FromForm] Quiz quiz)
+        //{
+        //    bool resoult = _quizRepository.AddQuizImg(quiz);
 
-            if (resoult == true)
-            {
-                return StatusCode(StatusCodes.Status201Created);
-            }
-            else
-            {
-                return StatusCode(StatusCodes.Status501NotImplemented);
-            }
-        }
+        //    if (resoult == true)
+        //    {
+        //        return StatusCode(StatusCodes.Status201Created);
+        //    }
+        //    else
+        //    {
+        //        return StatusCode(StatusCodes.Status501NotImplemented);
+        //    }
+        //}
 
     }
 }
